@@ -19,8 +19,7 @@ jobs:
           # Create new Sentry release
           export SENTRY_RELEASE=$(sentry-cli releases 'propose-version')
           sentry-cli releases new 'test'
-          sentry-cli releases set-commits --auto $SENTRY_RELEASE
-          sentry-cli releases finalize $SENTRY_RELEASE
+          sentry-cli releases finalize 'test'
 
           # Create new deploy for this Sentry release
           sentry-cli releases deploys $SENTRY_RELEASE new -e $SENTRY_DEPLOY_ENVIRONMENT
