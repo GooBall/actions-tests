@@ -1,0 +1,14 @@
+name: CI
+
+on: [release]
+
+jobs:
+  release:
+    runs-on: ubuntu-18.04
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v1.0.0
+      - name: Create new Sentry release and deploy
+    run: |
+      echo Hi
